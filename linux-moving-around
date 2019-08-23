@@ -13,3 +13,22 @@ C-s                         # Stops scroling the screen
 C-q                         # Resumes scrolling
 C-d                         # Terminates current session
 C-z                         # Suspends the process
+
+Command Structure
+command -options -arguments
+
+Combining Commands
+whoami; ls; id
+(whoami;id;ls -la) >> somefile 
+
+Internal and External commands
+type ls                     # locate ls
+type echo                   # locate echo
+which ls                    # locate the ls binary
+man man                     # manual entry for man
+man 5 passwd                # section 5 for passwd
+man -f pwd                  # one-line description for pwd
+whatis pwd                  # one-line description for pwd
+man -k pwd                  # Manual entries for the keyword pwd
+apropos pwd                 # Manual entries for the keyword pwd
+info echo                   # Texinfo documentation for echo
