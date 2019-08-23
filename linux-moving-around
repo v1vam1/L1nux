@@ -13,6 +13,7 @@ C-s                         # Stops scroling the screen
 C-q                         # Resumes scrolling
 C-d                         # Terminates current session
 C-z                         # Suspends the process
+C-l                         # Clears the screen
 
 Command Structure
 command -options -arguments
@@ -32,3 +33,7 @@ whatis pwd                  # one-line description for pwd
 man -k pwd                  # Manual entries for the keyword pwd
 apropos pwd                 # Manual entries for the keyword pwd
 info echo                   # Texinfo documentation for echo
+
+tty                         # Your terminal
+stty -a                     # Set terminal charecteristics
+script session_log          # Record current session
