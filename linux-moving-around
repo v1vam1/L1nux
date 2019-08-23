@@ -1,2 +1,15 @@
+whoami          # self check
 echo $SHELL			# Shell Type 
 echo $TERM			# Terminal Type
+set             # your Environment
+
+Keystroke / Commands        Functions
+C-j or C-m                  # Enter
+C-h                         # Erases text if backspace doesn't work
+C-c                         # Interrupts a command
+C-u                         # Kills a command without executing it
+C-\                         # Kills a running command and creates core dump
+C-s                         # Stops scroling the screen
+C-q                         # Resumes scrolling
+C-d                         # Terminates current session
+C-z                         # Suspends the process
