@@ -1,0 +1,2 @@
+echo $SHELL			# Shell Type 
+echo $TERM			# Terminal Type
