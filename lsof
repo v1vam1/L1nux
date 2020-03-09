@@ -1,0 +1,52 @@
+
+# Show all connections with -i
+lsof -i 
+
+# Get only IPv6 traffic with -i 6
+lsof -i 6
+
+# Show only TCP connections (works the same for UDP)
+lsof -iTCP
+
+# Show networking related to a given port using -i :port
+lsof -i :22
+
+#Show connections to a specific host using @host
+lsof -i@172.16.12.5
+
+#Show connections based on the host and the port using @host:port
+lsof -i@172.16.12.5:22
+
+#Find listening ports
+lsof -i -sTCP:LISTEN
+lsof -i | grep -i LISTEN
+
+#Find established connections
+lsof -i -sTCP:ESTABLISHED
+
+#User Information
+lsof -u daniel
+
+#Kill everything a given user is doing
+kill -9 `lsof -t -u daniel`
+
+#See what files and network connections a named command is using with -c #Super Important
+lsof -c syslog-ng
+
+#See what a given process ID has open using -p
+lsof -p 10075
+
+#The -t option returns just a PID
+lsof -t -c Mail
+
+#Show everything interacting with a given directory
+lsof /var/log/messages/
+
+#Show everything interacting with a given file
+lsof /home/daniel/firewall_whitelist.txt
+
+#Show me everything daniel is doing connected to 1.1.1.1
+lsof -u daniel -i @1.1.1.1
+
+#Show open connections with a port range
+lsof -i @fw.google.com:2150-2180
