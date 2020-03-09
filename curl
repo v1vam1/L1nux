@@ -1,0 +1,64 @@
+# Curl
+
+curl --trace-ascii debugdump.txt http://www.example.com/                            ## More verbose
+curl --trace-ascii d.txt --trace-time http://example.com/                           ## See the timing between two end points transfer
+curl --resolve www.example.org:80:127.0.0.1 http://www.example.org/                 ## Specify the ip address to resolve the name Here 127.0.0.1
+
+curl http://www.example.org:1234/                                                   ## Specify the port number
+curl --proxy http://proxy.example.org:4321 http://remote.example.org/               ## Specify the proxy
+  
+curl http://user:password@example.org/                                              ## User name and password
+curl -u user:password http://example.org/
+
+curl http://example.org   ## GET Request
+curl --head http://example.org   (--head / -I ) ## HEAD Request
+curl --data name=curl http://url1.example.com  ## POST Request
+
+# Multiple methods in a single line
+curl -I http://example.com --next http://example.com  ## Head and GET
+
+curl -d score=10 http://example.com/post.cgi --next http://example.com/results.html ## POST and GET
+
+# Form Submit
+<form method="POST" action="junk.cgi">
+ <input type=text name="birthyear">
+ <input type=submit name=press value=" OK ">
+ </form>
+ 
+curl --data "birthyear=1905&press=%20OK%20"  http://www.example.com/when.cgi 
+
+curl --data-urlencode "name=I am Daniel" http://www.example.com                     ## URL encode post data
+
+# File upload post
+
+<form method="POST" enctype='multipart/form-data' action="upload.cgi">
+ <input type=file name=upload>
+ <input type=submit name=press value="OK">
+</form>
+
+curl --form upload=@localfilename --form press=OK [URL]
+
+curl --upload-file uploadfile http://www.example.com/receive.cgi.                  ## PUT
+
+curl --user name:password http://www.example.com     ## BAsic authentication
+curl --proxy-user proxyuser:proxypassword curl.haxx.se ## Proxy Authentication
+
+## HTTP Headers
+curl --referer http://www.example.come http://www.example.com
+
+curl --user-agent "Mozilla/4.73 [en] (X11; U; Linux 2.2.15 i686)" [URL]
+
+curl --location http://www.example.com ## Redirect with a Location Header
+
+curl --cookie "name=Daniel" http://www.example.com ## Send a cookie
+
+## HTTPS
+ curl https://secure.example.com
+ curl --cert mycert.pem https://secure.example.com                                      ## With the certificate
+ 
+ curl --header "Host:" http://www.example.com.                                           ## Add Headers
+ 
+ -d will do POST, -I will do HEAD and so on. If you use the --request / -X option 
+ 
+ curl -X POST http://example.org/
+ curl -X OPTIONS http://example.org/
