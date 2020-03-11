@@ -1,0 +1,51 @@
+PsExec
+Execute command in remote computer
+psexec \\computername -u User -p Password command
+
+Execute command ‘netstat -an’ in 
+remote and output result in local computer
+psexec \\computername netstat -an > c:\file.txt
+
+Execute command in remote and output result in remote
+psexec \\computername cmd /c netstat -an ^>c:\file.txt
+
+Execute program to interact with user
+psexec \\computername -d -i notepad
+
+Run remote shell
+psexec \\computername cmd
+PsShutdown
+
+Force immediate shutdown remote computer
+psshutdown \\computername -s -f -t 0
+
+Force immediate reboot remote computer
+psshutdown \\computername -r -f -t 0
+PsFile
+
+Show opened files over the network in remote computer
+psfile \\computername
+
+Force close file
+psfile \\computername <path> -c
+PsLoggedOn
+
+View logged on and remotely connected users
+psloggedon \\computername
+PsKill
+
+Kill process or tree
+pskill \\computername <PID>
+
+Still available but obsolete see
+PsInfo
+
+Obtain information about remote computer (requires Remote Registry Service)
+psinfo \\computername -d -h -s
+PsList
+
+List processes in remote (requires Remote Registry Service)
+pslist \\remotecomputer
+PsService
+Start Remote Registry Service on remote computer
+psservice \\computername start RemoteRegistry
