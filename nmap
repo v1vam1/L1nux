@@ -1,0 +1,26 @@
+# Host discovery
+## Stealth (doesn’t touch target):
+$ nmap -sL target
+
+
+## Ping scan (no port scan):
+$ nmap -sn target
+
+## Stealth scan all ports
+nmap 192.168.0.1
+nmap -sS -p0- 192.168.0.1
+
+## Scan with version detection
+nmap -p0- -v -A -T4: all ports(-p0-), verbose (-v), OS detection (-A), quick timming(-T4)
+
+## UDP scan
+nmap -sU 192.168.0.1
+
+## Firewall evading
+nmap -f 192.168.0.1
+nmap -- mtu 16 192.168.0.1: (has to be multiple of 8)
+nmap --badsum 192.168.0.1
+nmap -sS -T5 192.168.0.0 --script firewall-bypass
+
+## Vulnerability scan
+nmap -sV -T4 -F 192.168.0.1 --scrip vuln
