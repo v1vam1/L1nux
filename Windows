@@ -1,0 +1,4 @@
+## Group Policies are stored here: \\<DOMAIN>\SYSVOL\<DOMAIN>\Policies\
+
+## findstr /S /I cpassword \\<FQDN>\sysvol\<FQDN>\policies\*.xml
+
