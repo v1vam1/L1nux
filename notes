@@ -1,0 +1,13 @@
+find / \( -perm -02000 -o -perm -04000 \) -ls 2>/dev/null   => find sXid programs
+find / -type f -mtime 1 \! -user root -exec ls -l {} \; 2>/dev /null | head -2 ==> find the files modified on last day not owned by root
+uname
+uname -S
+systemctl status | enable | start ssh
+cat /etc/passwd | awk -F":" '{ printf "The user %s home directory is %s \n",  $1,$6 }' | head -2
+cat passwd | sed -n 's/Gnome Display Manager/GDM/p' ==> Debian-gdm:x:130:139:GDM:/var/lib/gdm3:/bin/false
+diff -u one.txt two.txt     [- lines in 1st file + lines 2nd file ]
+find / -type f -mtime 7 -print > modified_last_week.txt 2>/dev/null
+ps -ef | grep $(which chrome)
+kill -l 
+
+
